@@ -2,7 +2,7 @@
 Material for the module "Statistics and machine learning" in the course M5: Bioinformatics at University of Heidelberg, Feb 2021, by [Wolfgang Huber](https://www.huber.embl.org)
 
 ## Course agenda
-The module consists of four parts, as listed below. Each part comprises a series of video lectures (mp4), the slides (PDF), and an exercises in the form of a book chapter with questions and exercises. In addition, there will be two Q&A sessions (see below).
+The module consists of four parts, as listed below. Each part comprises a series of video lectures (mp4/mov), the slides (PDF), and exercises in the form of a book chapter with questions and exercises. In addition, there will be two Q&A sessions (see below).
 
 * Mon 2021-02-08: Supervised learning. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/ML) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Supervised.html) 
 * Fri 2021-02-12: Visualization graphics
