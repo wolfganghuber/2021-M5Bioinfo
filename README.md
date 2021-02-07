@@ -1,13 +1,15 @@
 # 2021-M5Bioinfo
-Material for the module "Statistics and machine learning" in the course M5: Bioinformatic at University of Heidelberg, Feb 2021, by Wolfgang Huber
+Material for the module "Statistics and machine learning" in the course M5: Bioinformatics at University of Heidelberg, Feb 2021, by [Wolfgang Huber](https://www.huber.embl.org)
 
 ## Course agenda
-The module consists of four parts, each comprising a video lecture, a set of slides, and an exercises in the form of a book chapter with questions and exercises. In addition, there will be two Q&A sessions.
+The module consists of four parts, as listed below. Each part comprises a series of video lectures (mp4), the slides (PDF), and an exercises in the form of a book chapter with questions and exercises. In addition, there will be two Q&A sessions (see below).
 
-* [1 - Mon 2021-02-08](supervised) : Supervised learning
-* [2 - Fri 2021-02-12](graphics) : Visualization graphics
-* [3 - Mon 2021-02-15](multtest) : (Multiple) testing
-* [4 - Fri 2021-02-19](countslinmod) : Count data and generalized linear models
+* Mon 2021-02-08: Supervised learning. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/ML) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Supervised.html) 
+* Fri 2021-02-12: Visualization graphics
+* Mon 2021-02-15: (Multiple) testing
+* Fri 2021-02-19: Count data and generalized linear models
+
+**How to consume this material**: if you want to prioritize, skip the lecture recordings, have a quick scan through the lecture PDFs and read the book chapter carefully.
 
 ## Q&A sessions
 Monday 15 Feb and 22 Feb, 10:10-10:55.
