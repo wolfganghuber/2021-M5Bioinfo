@@ -5,7 +5,7 @@ Material for the module "Statistics and machine learning" in the course M5: Bioi
 The module consists of four parts, as listed below. Each part comprises a series of video lectures (mp4/mov), the slides (PDF), and exercises in the form of a book chapter with questions and exercises. In addition, there will be two Q&A sessions (see below).
 
 * Mon 2021-02-08: Supervised learning. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/ML) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Supervised.html) 
-* Fri 2021-02-12: Visualization graphics
+* Fri 2021-02-12: Visualization graphics. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/graphics) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Graphics.html). [Plotly demo plots](graphics/demoplots.html) ([Rmarkdown](graphics/demoplots.Rmd)).
 * Mon 2021-02-15: (Multiple) testing
 * Fri 2021-02-19: Count data and generalized linear models
 
