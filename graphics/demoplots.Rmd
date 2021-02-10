@@ -1,0 +1,251 @@
+---
+title: "Lecture 3: Supporting Plots"
+author: "Bios 221: Modern Statistics for Modern Biology"
+date: "June/July 2019"
+output: 
+  BiocStyle::html_document:
+    toc_float: true
+---
+
+
+```{r setup, message=FALSE, warning=FALSE, results='hide'}
+library(ggplot2)
+library(dplyr)
+```
+
+# Loading data
+
+```{r,  message=FALSE, warning=FALSE}
+#BiocManager::install("Hiiragi2013")
+library(Hiiragi2013)
+library(Biobase)
+data(x)
+expression <- Biobase::exprs(x)
+dftx <- data.frame(pData(x), t(expression))
+head(pData(x))
+```
+
+```{r}
+dim(expression)
+```
+
+
+
+```{r}
+groupSize <- table(dftx$sampleGroup) 
+groupSize
+```
+
+```{r}
+ggplot( dftx, aes( x = X1426642_at, y = X1418765_at ))  +
+  geom_point( aes( color = sampleGroup), shape = 19 ) +
+  geom_smooth( method = "loess" ) +
+  scale_color_discrete( guide = FALSE )
+```
+
+
+# Plotly
+
+```{r message=FALSE, warning=FALSE}
+#install.packages("plotly")
+library(plotly)
+plt <- ggplot( dftx, aes( x = X1426642_at, y = X1418765_at ))  +
+  geom_point( aes( color = sampleGroup), shape = 19 ) +
+  geom_smooth( method = "loess" ) +
+  scale_color_discrete( guide = FALSE )
+ggplotly(plt) 
+```
+
+
+
+```{r}
+plot_ly(dftx, x = ~X1426642_at, y = ~X1418765_at, z = ~X1416967_at, 
+        color = ~Embryonic.day, type = "scatter3d", mode = "markers",
+        marker = list(size = 4))
+```
+
+
+# Tydying data
+
+```{r}
+selectedProbes <- c(Fgf4  = "X1420085_at", Gata4 =  "X1418863_at",      
+                    Gata6 = "X1425463_at",  Sox2 = "X1416967_at") 
+genes_expression <- as.matrix(dftx[, selectedProbes])
+```
+
+```{r}
+head(genes_expression)
+```
+
+
+```{r  message=FALSE, warning=FALSE, results='hide'}
+library("reshape2")
+genes = melt(genes_expression, varnames = c("sample", "probe"))
+head(genes)
+```
+
+```{r}
+genes$gene =
+  names(selectedProbes)[match(genes$probe, selectedProbes)]
+head(genes)
+```
+
+
+```{r}
+wide <- dcast(genes, formula =  sample ~ probe, value.var = "value")
+head(wide)
+```
+
+```{r}
+head(genes)
+```
+
+# 1D data plots
+
+```{r}
+p = ggplot(genes, aes( x = gene, y = value))
+p + geom_boxplot(aes(fill = gene))
+```
+
+
+```{r}
+p + geom_boxplot() +
+  geom_jitter(aes(color = gene), width = 0.1, height = 0)
+```
+
+
+
+```{r}
+p = ggplot(genes, aes( x = gene, y = value))
+p + geom_violin(aes(fill =  gene))
+```
+
+```{r}
+p + geom_violin() +
+  geom_jitter(aes(color = gene), width = 0.1, height = 0)
+```
+
+
+```{r}
+p = ggplot(genes %>% filter(gene %in% c("Gata4", "Sox2")),
+           aes(x = value)) 
+p + geom_histogram(aes(fill = gene), 
+                   color = "white", bins = 40)
+```
+
+
+```{r}
+p + geom_histogram(
+  aes(fill = gene), color="white", alpha=0.6, 
+  bins = 40, position = "identity")
+```
+
+
+```{r}
+p = ggplot(genes, aes( x = value, color = gene)) 
+p + geom_density()
+```
+
+```{r}
+p = ggplot(genes, aes( x = value, fill = gene)) 
+p + geom_density(alpha = 0.3)
+```
+
+
+```{r}
+dfx = as.data.frame(Biobase::exprs(x))
+ggplot(dfx, aes(x = `64 E4.5 (EPI)`)) + geom_histogram(bins = 100)
+```
+
+```{r}
+ggplot(dfx, aes(x = exp(`64 E4.5 (EPI)`))) + geom_histogram(binwidth = 20) +
+  xlim(0, 1500)
+```
+
+
+```{r}
+simdata = rnorm(70)
+simdf <- data.frame(index = seq(along = simdata), sx = sort(simdata))
+ggplot(simdf, aes(x = sx, y = index)) +  geom_step()
+```
+
+
+## change theme
+
+```{r changing theme 1 , fig.width=5, fig.height=3}
+
+g = ggplot(iris, 
+           aes(x = Species, 
+               y = Sepal.Length, 
+               fill = Species))+
+  geom_violin(col = NA)
+g
+
+g + theme_minimal()
+
+g + theme_dark()
+
+
+library(ggthemes)
+g + theme_economist_white()
+
+
+```
+
+
+
+
+# 3-5D data
+
+```{r}
+head(mtcars)
+```
+
+```{r}
+ggplot(data = mtcars) +
+  geom_point(
+    aes(x = wt, y = mpg,
+        shape = factor(gear),
+        color = factor(cyl), 
+        size = qsec))
+```
+
+
+
+# Title page
+
+```{r  message=FALSE, warning=FALSE, results='hide'}
+# Title page
+library(ggplot2)
+library(viridis)
+library(season)
+library(gridExtra)
+
+
+pd<-ggplot(schz, aes(year, month, fill = SczBroad)) + 
+  geom_tile(colour="gray20", size=1.5, stat="identity") + 
+  scale_fill_viridis(option="D") +
+  scale_y_continuous(breaks=1:12, labels=month.abb[1:12])+
+  xlab("") + 
+  ylab("") +
+  ggtitle("Total Australian Schizophrenics Born By Month and Year") +
+  theme(
+    plot.title = element_text(color="white",hjust=0,vjust=1, size=rel(2)),
+    plot.background = element_rect(fill="gray20"),
+    panel.background = element_rect(fill="gray20"),
+    panel.border = element_rect(fill=NA,color="gray20", size=0.5, linetype="solid"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(), 
+    axis.text = element_text(color="white", size=rel(1.5)),
+    axis.text.y  = element_text(hjust=1),
+    legend.text = element_text(color="white", size=rel(1.3)),
+    legend.background = element_rect(fill="gray20"),
+    legend.position = "bottom",
+    legend.title=element_blank()
+  )
+
+pd
+```
+
