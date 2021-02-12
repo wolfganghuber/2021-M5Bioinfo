@@ -6,8 +6,8 @@ The module consists of four parts, as listed below. Each part comprises a series
 
 * Mon 2021-02-08: Supervised learning. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/ML) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Supervised.html) 
 * Fri 2021-02-12: Visualization graphics. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/graphics) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Graphics.html). [Plotly demo plots](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/graphics/demoplots.html) ([Rmarkdown](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/graphics/demoplots.Rmd)).
-* Mon 2021-02-15: (Multiple) testing
-* Fri 2021-02-19: Count data and generalized linear models
+* Mon 2021-02-15: (Multiple) testing. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/testing) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-Testing.html) 
+* Fri 2021-02-19: Count data and generalized linear models. [Lecture videos and slides](https://www.huber.embl.de/users/whuber/2021-M5Bioinfo/countsglm) and [book chapter and exercises](https://www.huber.embl.de/msmb/Chap-CountData.html) 
 
 **How to consume this material**: if you want to prioritize, skip the lecture recordings, have a quick scan through the lecture PDFs and read the book chapter carefully.
 
