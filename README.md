@@ -12,7 +12,4 @@ The module consists of four parts, as listed below. Each part comprises a series
 **How to consume this material**: if you want to prioritize, skip the lecture recordings, have a quick scan through the lecture PDFs and read the book chapter carefully.
 
 ## Q&A sessions
-Monday 15 Feb and 22 Feb, 10:10-10:55.
-[Zoom link](https://embl-de.zoom.us/j/97250413265?pwd=ZVpXRGlhVGt1RnRobXF2MHJ0U3lmZz09).
-Meeting ID: 972 5041 3265
-Password: msmb
+Monday 15 Feb and 22 Feb 2021, 10:10-10:55 via zoom.
